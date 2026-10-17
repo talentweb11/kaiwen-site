@@ -27,6 +27,24 @@ themeToggle.addEventListener('click', () => {
 const GITHUB_USER = 'talentweb11';
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const backToTop = document.getElementById('back-to-top');
+const hero = document.getElementById('hero');
+
+function updateBackToTop() {
+  backToTop.hidden = hero.getBoundingClientRect().bottom > 0;
+}
+
+// Observe the section boundary, including restored scroll positions and resizing.
+const heroObserver = new IntersectionObserver(updateBackToTop);
+heroObserver.observe(hero);
+updateBackToTop();
+
+backToTop.addEventListener('click', () => {
+  document.getElementById('hero-title').focus({ preventScroll: true });
+  // The stylesheet enables smooth scrolling unless reduced motion is preferred.
+  window.scrollTo({ top: 0, behavior: 'auto' });
+});
+
 async function loadRepositories() {
   const status = document.getElementById('repo-status');
   const grid = document.getElementById('repo-grid');
