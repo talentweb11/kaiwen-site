@@ -1,5 +1,29 @@
 'use strict';
 
+const themeToggle = document.getElementById('theme-toggle');
+
+function applyTheme(dark) {
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  themeToggle.setAttribute('aria-pressed', String(dark));
+}
+
+// Storage can be unavailable in privacy-restricted browsers.
+try {
+  applyTheme(localStorage.getItem('portfolio-theme') === 'dark');
+} catch {
+  applyTheme(false);
+}
+themeToggle.hidden = false;
+themeToggle.addEventListener('click', () => {
+  const dark = document.documentElement.dataset.theme !== 'dark';
+  applyTheme(dark);
+  try {
+    localStorage.setItem('portfolio-theme', dark ? 'dark' : 'light');
+  } catch {
+    // The toggle still works for this visit when persistence is blocked.
+  }
+});
+
 const GITHUB_USER = 'talentweb11';
 document.getElementById('year').textContent = new Date().getFullYear();
 

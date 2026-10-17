@@ -6,3 +6,16 @@
 @media(max-width:800px){.hero{grid-template-columns:1fr;gap:30px;padding-block:65px}.hero-note{display:none}.split-section{gap:35px;grid-template-columns:1fr 1.5fr}.repo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-heading{align-items:start}.section-heading>p{max-width:200px}nav{gap:18px}}
 @media(max-width:540px){.wrapper{width:calc(100% - 36px)}.site-header{align-items:start;gap:20px;padding-block:22px}nav{gap:10px 16px;justify-content:flex-end;max-width:250px}nav a{font-size:.75rem}.hero{padding-block:55px}.hero .eyebrow{margin-bottom:24px}h1{font-size:2.65rem}.split-section{grid-template-columns:1fr;gap:26px;padding-block:44px}.eyebrow{margin-bottom:14px}.lead{font-size:1.15rem}.section{padding-block:44px}.section-heading{display:block}.section-heading>p,.section-heading>a{display:block;margin-top:20px;max-width:none}.project-grid,.repo-grid{grid-template-columns:1fr}.project-art{height:190px}.contact{padding:36px 24px;margin-block:10px 35px}.contact .links{align-items:start;flex-direction:column;gap:16px}footer{flex-direction:column;gap:8px}.links{gap:17px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Theme controls share the navigation's typography and wrap on small screens. */
+nav{align-items:center}
+.theme-toggle{font:inherit;font-size:.8rem;font-weight:500;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:4px;padding:8px 12px;cursor:pointer;min-height:44px}
+.theme-toggle:hover{background:var(--line)}
+.theme-toggle:focus-visible{outline:3px solid #7c9e42;outline-offset:6px}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#131c18;--ink:#edf2e9;--muted:#b5c1b7;--line:#35483b}
+[data-theme="dark"] .project-card,[data-theme="dark"] .repo-card,[data-theme="dark"] .skip-link{background:#1d2a22}
+[data-theme="dark"] h1>span{color:#a6c0a4}
+[data-theme="dark"] a:hover{color:var(--accent)}
+[data-theme="dark"] .wordmark span,[data-theme="dark"] .skill-row>span{color:#a6c0a4}
+[data-theme="dark"] .art-one{background:#2c4032;color:#d8e7cc}
+[data-theme="dark"] .art-two{background:#3b362c;color:#e2d8c5}
