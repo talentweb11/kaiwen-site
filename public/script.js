@@ -3,6 +3,7 @@
 const themeToggle = document.getElementById('theme-toggle');
 
 function applyTheme(dark) {
+  document.body.classList.toggle('dark', dark);
   document.documentElement.dataset.theme = dark ? 'dark' : 'light';
   themeToggle.setAttribute('aria-pressed', String(dark));
 }
